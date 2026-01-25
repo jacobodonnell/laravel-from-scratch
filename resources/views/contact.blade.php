@@ -6,11 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello World</h1>
+    <h1>Contact</h1>
 
     <div>
+        <a href="/">Home</a>
         <a href="/about">About Us</a>
-        <a href="/contact">Contact Us</a>
     </div>
 </body>
 </html>
