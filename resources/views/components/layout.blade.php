@@ -10,6 +10,6 @@
     <title>{{ $title  }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-gray-700 p-6 max-w-xl mx-auto">
+<body class="bg-gray-700 p-6 max-w-xl mx-auto text-white">
     {{ $slot }}
 </body>
