@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreIdeaRequest;
+use App\Http\Requests\IdeaRequest;
 use App\Models\Idea;
-use Illuminate\Http\Request;
 use function redirect;
 use function view;
 
@@ -25,7 +24,7 @@ class IdeaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreIdeaRequest $request)
+    public function store(IdeaRequest $request)
     {
         Idea::create([
             'description' => $request->get('description'),
@@ -66,7 +65,7 @@ class IdeaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Idea $idea)
+    public function update(IdeaRequest $request, Idea $idea)
     {
         $idea->update([
             'description' => $request->get('description')
@@ -85,3 +84,4 @@ class IdeaController extends Controller
         return redirect('/ideas');
     }
 }
+
