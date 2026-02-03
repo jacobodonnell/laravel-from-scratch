@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Auth\SessionsController;
 use App\Http\Controllers\IdeaController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,3 +15,10 @@ Route::get('/ideas/{idea}', [IdeaController::class, 'show']);
 Route::get('/ideas/{idea}/edit', [IdeaController::class, 'edit']);
 Route::patch('/ideas/{idea}', [IdeaController::class, 'update']);
 Route::delete('/ideas/{idea}', [IdeaController::class, 'destroy']);
+
+Route::get('/register', [RegisteredUserController::class, 'create'])->middleware('guest');
+Route::post('/register', [RegisteredUserController::class, 'store'])->middleware('guest');
+
+Route::get('/login', [SessionsController::class, 'create'])->middleware('guest');
+Route::post('/login', [SessionsController::class, 'store'])->middleware('guest');
+Route::delete('/logout', [SessionsController::class, 'destroy'])->middleware('auth');
