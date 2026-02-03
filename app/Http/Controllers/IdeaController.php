@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\IdeaRequest;
 use App\Models\Idea;
 use Illuminate\Support\Facades\Auth;
+
 use function redirect;
 use function view;
 
@@ -16,7 +17,7 @@ class IdeaController extends Controller
     public function index()
     {
         return view('ideas.index', [
-            'ideas' => Auth::user()->ideas
+            'ideas' => Auth::user()->ideas,
         ]);
     }
 
@@ -46,7 +47,7 @@ class IdeaController extends Controller
     public function show(Idea $idea)
     {
         return view('ideas.show', [
-            'idea' => $idea
+            'idea' => $idea,
         ]);
     }
 
@@ -56,7 +57,7 @@ class IdeaController extends Controller
     public function edit(Idea $idea)
     {
         return view('ideas.edit', [
-            'idea' => $idea
+            'idea' => $idea,
         ]);
     }
 
@@ -66,7 +67,7 @@ class IdeaController extends Controller
     public function update(IdeaRequest $request, Idea $idea)
     {
         $idea->update([
-            'description' => $request->get('description')
+            'description' => $request->get('description'),
         ]);
 
         return redirect("ideas/{$idea->id}");
@@ -82,4 +83,3 @@ class IdeaController extends Controller
         return redirect('/ideas');
     }
 }
-

@@ -16,18 +16,17 @@ class RegisteredUserController extends Controller
 
         // validate the request
         $validatedData = $request->validate([
-            'name'     => ['required', 'string', 'max:255'],
-            'email'    => ['required', 'string', 'confirmed', 'email', 'max:255', 'unique:users'],
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'confirmed', 'email', 'max:255', 'unique:users'],
             'password' => ['required', Password::default()],
         ]);
 
-        //create the user in the db
+        // create the user in the db
         $user = User::create([
-            'name'     => $request->name,
-            'email'    => $request->email,
+            'name' => $request->name,
+            'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-
 
         // log them in
         Auth::login($user);
@@ -40,5 +39,4 @@ class RegisteredUserController extends Controller
     {
         return view('auth.register');
     }
-
 }

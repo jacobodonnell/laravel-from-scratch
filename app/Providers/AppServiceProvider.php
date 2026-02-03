@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\User;
+use Illuminate\Auth\Access\Response;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
 
@@ -26,6 +29,10 @@ class AppServiceProvider extends ServiceProvider
             return $this->app->isProduction()
                 ? $rule->mixedCase()->uncompromised()->numbers()->letters()->symbols()
                 : $rule;
+        });
+
+        Gate::define('view-admin', function (?User $user) {
+            return $user?->isAdmin() ? Response::allow() : Response::denyAsNotFound();
         });
     }
 }

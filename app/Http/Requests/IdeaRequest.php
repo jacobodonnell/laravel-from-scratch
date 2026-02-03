@@ -23,7 +23,7 @@ class IdeaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'description' => ['required', 'min:10']
+            'description' => ['required', 'min:10'],
         ];
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Password;
+
 use function redirect;
 
 class SessionsController extends Controller
@@ -25,7 +26,7 @@ class SessionsController extends Controller
     {
         // validate
         $validated = $request->validate([
-            'email'    => ['required', 'email', 'string', 'max:255',],
+            'email' => ['required', 'email', 'string', 'max:255'],
             'password' => ['required', Password::default()],
         ]);
 
