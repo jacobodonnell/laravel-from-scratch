@@ -27,7 +27,7 @@
                 </div>
             @endif
 
-            <button type="submit" class="btn btn-neutral mt-4">Register</button>
+            <button data-test="register-button" type="submit" class="btn btn-neutral mt-4">Register</button>
         </fieldset>
     </form>
 </x-layout>

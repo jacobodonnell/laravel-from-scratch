@@ -7,7 +7,7 @@ test('a logged in user sees their ideas on the home page', function () {
     $user = User::factory()->create();
 
     Idea::create([
-        'user_id' => $user->id,
+        'user_id'     => $user->id,
         'description' => 'My first idea',
     ]);
 
